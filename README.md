@@ -7,5 +7,8 @@ Still to do:
   - .config/sxhkd/sxhkdrc
   - .zshrc (with different branches for home/schooll)
   - .vim folder
+  - unicamp stuff:
+    - openvpn 
+    - eduroam 
 
   
