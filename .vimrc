@@ -11,6 +11,7 @@ set nohlsearch "do not highlight after search
 set incsearch "Makes search act like search in modern browsers
 set smartcase " When searching try to be smart about cases 
 
+set t_Co=256
 colorscheme wombat256i
 
 " kill background for transparency and use darkgrey for highlight
