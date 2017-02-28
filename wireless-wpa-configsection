@@ -1,0 +1,19 @@
+Description='A wireless connection using a custom network block configuration'
+Interface=wlan0
+Connection=wireless
+Security=wpa-configsection
+IP=dhcp
+WPAConfigSection=(
+    'ssid="eduroam"'
+    'key_mgmt=WPA-EAP'
+    'pairwise=CCMP'
+    'group=CCMP TKIP'
+    'eap=TTLS'
+    'phase2="auth=PAP"'
+    'ca_cert="<PATH TO CERT>"'
+    'identity="<USER>"'
+    'subject_match="unicamp.br"'
+    'password="<PASSWORD>"'
+    'priority=1'
+    'anonymous_identity="anonymous@unicamp.br"'
+)
