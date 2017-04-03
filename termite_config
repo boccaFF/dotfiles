@@ -1,0 +1,14 @@
+[colors]
+background = rgba(02, 02, 02, 0.85)
+[options]
+font = xos4 Terminus 10
+audible_bell = false
+visible_bell = false
+mouse_autohid = false
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+search_wrap = true
+browser = chromium
+
