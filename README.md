@@ -1,7 +1,3 @@
 
-Still to do:
+Dotfiles for managing tmux, vim and setting up some connections
 
-- add the following:
-  - .config/bspwm/bspwmrc (with different branchs for home/school)
-  - .config/sxhkd/sxhkdrc
-  - .zshrc (with different branches for home/schooll)
