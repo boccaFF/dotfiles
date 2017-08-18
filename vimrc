@@ -46,6 +46,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/AutoComplPop'
   " uses tab to select auto-completion
   Plug 'ervandew/supertab'
+" python completion
+" TODO: find lighter completion engine for slower machines
+  "Plug 'davidhalter/jedi-vim'
 " colorschems library (use ln -s .vim/plugged/colorschemes/colors .vim/colors)
   Plug 'flazz/vim-colorschemes'
 " Color parenthesis according to hierarchy
@@ -56,9 +59,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'epeli/slimux'
 " check trailing whitespace
 	Plug 'bronson/vim-trailing-whitespace'
-" python completion
-" TODO: find lighter completion engine for slower machines
-  Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 " configure jedi to python3
@@ -67,6 +67,8 @@ let g:jedi#force_py_version = 3
 let g:jedi#show_call_signatures = "2"
 "let g:jedi#show_call_signatures = "0"
 "autocmd FileType python call jedi#configure_call_signatures()
+
+"let g:ycm_python_binary_path = '/usr/bin/python3'
 
 
 " set RainbowParentheses to work
@@ -79,5 +81,4 @@ au Syntax * RainbowParenthesesLoadBraces
 vnoremap <Leader>ss :SlimuxREPLSendSelection<CR>
 nnoremap <leader>ss :SlimuxREPLSendLine<CR>
 nnoremap <leader>sb :SlimuxREPLSendBuffer<CR>
-
 
