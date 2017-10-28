@@ -5,23 +5,28 @@
 #https://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+LINKS="vimrc  tmux.conf python_calc.py"
 
-#TODO: loop over files instead of series of  multiple ifs
-if [ -e $HOME/.vimrc ]
-then
-  cp $HOME/.vimrc  $HOME/.vimrc.bak --backup=t
-  rm $HOME/.vimrc
-  echo 'Backup file created for older version of .vimrc'
-fi
+for link in $LINKS; do
+  #echo $link
+  if [ -e $HOME/".$link" ]
+  then
+    echo ".$link"
+    cp $HOME/.$link $HOME/.$link.bak --backup=t
+    rm $HOME/.$link
+    echo 'Backup file created for older version of '$vimrc
+  fi
 
-if [ -e $HOME/.tmux.conf ]
-then
-  cp $HOME/.tmux.conf $HOME/.tmux.conf.bak --backup=t
-  rm $HOME/.tmux.conf
-  echo 'Backup file created for older version of .tmux.conf'
-fi
+  ln -s $DIR/$link $HOME/".$link"
 
-ln -s $DIR/vimrc $HOME/.vimrc
-ln -s $DIR/tmux.conf $HOME/.tmux.conf
+done
 
-
+#for link in $LINKS; do
+  #if [ -e $HOME/.$link]
+  #then
+    #echo .$link
+    #cp $HOME/.$link $HOME/.$link.bak --backup=t
+    #rm $HOME/.$link
+    #echo 'Backup file created for older version of '$vimrc
+  #fi
+#done
