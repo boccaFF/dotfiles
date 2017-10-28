@@ -10,13 +10,15 @@ set showmatch "show matching brackets and stuff
 set nohlsearch "do not highlight after search
 set incsearch "Makes search act like search in modern browsers
 set smartcase " When searching try to be smart about cases 
+set foldcolumn=1 "show fold sctructure
+"set iskeyword-=_
+"set iskeyword-=-
 syntax on
 filetype plugin on
 
 set t_Co=256
 colorscheme wombat256i
 
-"
 "" kill background for transparency and use darkgrey for highlight
 "au ColorScheme * hi Normal ctermbg=none
 "au ColorScheme * hi Visual ctermbg=darkgrey
@@ -38,6 +40,9 @@ autocmd FileType python setlocal ts=4 sw=4 sts=4 "except for python
 let mapleader = " "
 
 " download vimplug
+" select the lines below and enter exe mode (:)
+" send the selection with w! bash
+" line will look like :'<,'>:w! bash
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -56,9 +61,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'epeli/slimux'
 " check trailing whitespace
 	Plug 'bronson/vim-trailing-whitespace'
-" python completion
-" TODO: find lighter completion engine for slower machines
-  Plug 'davidhalter/jedi-vim'
+" display indention levels with thin vertical lines
+  Plug 'yggdroot/indentline'
 call plug#end()
 
 " configure jedi to python3
@@ -79,5 +83,3 @@ au Syntax * RainbowParenthesesLoadBraces
 vnoremap <Leader>ss :SlimuxREPLSendSelection<CR>
 nnoremap <leader>ss :SlimuxREPLSendLine<CR>
 nnoremap <leader>sb :SlimuxREPLSendBuffer<CR>
-
-
