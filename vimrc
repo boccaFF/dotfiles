@@ -47,13 +47,11 @@ let mapleader = " "
 "     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 call plug#begin('~/.vim/plugged')
-" automatically pops up auto-completion
-  Plug 'vim-scripts/AutoComplPop'
-  " uses tab to select auto-completion
-  Plug 'ervandew/supertab'
-" python completion
-" TODO: find lighter completion engine for slower machines
-  "Plug 'davidhalter/jedi-vim'
+  Plug 'w0rp/ale'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+" async completion - Pandas is lame with Jedi, no fault with vim completion...
+  Plug 'lifepillar/vim-mucomplete'
 " colorschems library (use ln -s .vim/plugged/colorschemes/colors .vim/colors)
   Plug 'flazz/vim-colorschemes'
 " Color parenthesis according to hierarchy
@@ -71,12 +69,16 @@ call plug#end()
 " configure jedi to python3
 let g:jedi#force_py_version = 3
 " show arguments inline
-let g:jedi#show_call_signatures = "2"
-"let g:jedi#show_call_signatures = "0"
-"autocmd FileType python call jedi#configure_call_signatures()
+let g:jedi#show_call_signatures = "1"
 
-"let g:ycm_python_binary_path = '/usr/bin/python3'
 
+set noshowmode shortmess+=c
+set completeopt-=preview
+set completeopt+=longest,menuone,noinsert,noselect
+let g:jedi#popup_on_dot = 0  " It may be 1 as well
+let g:mucomplete#enable_auto_at_startup = 1
+
+let g:completor_python_binary = '/usr/bin/python'
 
 " set RainbowParentheses to work
 au VimEnter * RainbowParenthesesToggle
@@ -88,3 +90,10 @@ au Syntax * RainbowParenthesesLoadBraces
 vnoremap <Leader>ss :SlimuxREPLSendSelection<CR>
 nnoremap <leader>ss :SlimuxREPLSendLine<CR>
 nnoremap <leader>sb :SlimuxREPLSendBuffer<CR>
+
+
+map <leader>b :Buffers<cr>
+map <leader>f :Files<cr>
+map <leader>g :GFiles<cr>
+map <leader>t :Tags<cr>
+
