@@ -42,8 +42,8 @@ let mapleader = " "
 
 " download vimplug
 " select the lines below and enter exe mode (:)
-" send the selection with w! bash
-" line will look like :'<,'>:w! bash
+" send the selection with w !bash
+" line will look like :'<,'>:w !bash
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -178,7 +178,7 @@ function! s:MaybeUpdateLightline()
   end
 endfunction
 
-" Improve documentation for Ale
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+"" Improve documentation for Ale
+"nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+"nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
